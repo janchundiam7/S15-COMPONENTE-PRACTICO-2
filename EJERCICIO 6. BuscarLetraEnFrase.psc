@@ -36,7 +36,7 @@ Algoritmo BuscarLetraEnFrase
 		
 		Contar_Letra(frase, letra)
 		
-		Escribir "¿Desea buscar otra letra en la misma frase? (S/N):"
+		Escribir "Â¿Desea buscar otra letra en la misma frase? (S/N):"
 		Leer opcion
 		op = Mayusculas(op)
 	Hasta Que op <> "S"
