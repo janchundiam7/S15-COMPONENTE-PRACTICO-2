@@ -17,7 +17,7 @@
 		subtotal = personas * costoPlatillo
 		total = subtotal + (subtotal * 0.15)  
 		
-		Escribir "Número de personas: ", personas
+		Escribir "NÃºmero de personas: ", personas
 		Escribir "Costo por platillo: $", costoPlatillo
 		Escribir "Subtotal: $", subtotal
 		Escribir "Total con IVA (15%): $", total
