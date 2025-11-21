@@ -1,18 +1,18 @@
-Algoritmo FleteBanano
+Algoritmo Asociacion_venicultores
     
-    // 1. Definición de variables
+    // 1. DefiniciÃ³n de variables
     Definir tipo_caja, tamanio Como Caracter;
     Definir precio_inicial, precio_final Como Real;
     
-    Escribir "--- Cálculo de Recibo a Productor de Banano ---";
+    Escribir "--- CÃ¡lculo de Recibo a Productor de Banano ---";
     
     // 2. Pedir datos al usuario
     Escribir "Ingrese el tipo de caja (A o B):";
     Leer tipo_caja;
-    Escribir "Ingrese el tamaño de la fruta (1 o 2):";
+    Escribir "Ingrese el tamaÃ±o de la fruta (1 o 2):";
     Leer tamanio;
     
-    // 3. Determinar precio inicial según el tipo de caja
+    // 3. Determinar precio inicial segÃºn el tipo de caja
     Si Mayusculas(tipo_caja) = "A" Entonces
         precio_inicial <- 2; // $2 si es Tipo A
     SiNo
@@ -24,18 +24,18 @@ Algoritmo FleteBanano
         FinSi
     FinSi
     
-    // 4. Aplicar modificación al precio inicial según el tamaño
+    // 4. Aplicar modificaciÃ³n al precio inicial segÃºn el tamaÃ±o
     precio_final <- precio_inicial; // Inicialmente el precio final es el precio base
     
     Si Mayusculas(tipo_caja) = "A" Entonces
         // Modificaciones para el Tipo A
         Si tamanio = "1" Entonces
             precio_final <- precio_final + 0.20; // + $0.20
-            Escribir "Ajuste: Se añaden $0.20 por ser Tamaño 1.";
+            Escribir "Ajuste: Se aÃ±aden $0.20 por ser TamaÃ±o 1.";
         SiNo
             Si tamanio = "2" Entonces
                 precio_final <- precio_final + 0.40; // + $0.40
-                Escribir "Ajuste: Se añaden $0.40 por ser Tamaño 2.";
+                Escribir "Ajuste: Se aÃ±aden $0.40 por ser TamaÃ±o 2.";
             FinSi
         FinSi
     SiNo
@@ -43,11 +43,11 @@ Algoritmo FleteBanano
             // Modificaciones para el Tipo B
             Si tamanio = "1" Entonces
                 precio_final <- precio_final - 3; // - $3.00
-                Escribir "Ajuste: Se rebajan $3.00 por ser Tamaño 1.";
+                Escribir "Ajuste: Se rebajan $3.00 por ser TamaÃ±o 1.";
             SiNo
                 Si tamanio = "2" Entonces
                     precio_final <- precio_final - 6; // - $6.00
-                    Escribir "Ajuste: Se rebajan $6.00 por ser Tamaño 2.";
+                    Escribir "Ajuste: Se rebajan $6.00 por ser TamaÃ±o 2.";
                 FinSi
             FinSi
         FinSi
@@ -56,9 +56,10 @@ Algoritmo FleteBanano
     // 5. Mostrar resultado
     Escribir "=============================================";
     Escribir "Tipo de Caja Ingresado: ", tipo_caja;
-    Escribir "Tamaño de Fruta Ingresado: ", tamanio;
+    Escribir "TamaÃ±o de Fruta Ingresado: ", tamanio;
     Escribir "Precio Inicial (Base) de la Caja: $", precio_inicial;
-    Escribir "Precio Final que Recibirá el Productor: $", precio_final;
+    Escribir "Precio Final que RecibirÃ¡ el Productor: $", precio_final;
     Escribir "=============================================";
     
+
 FinAlgoritmo
