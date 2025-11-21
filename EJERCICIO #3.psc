@@ -1,11 +1,11 @@
 Algoritmo CalculoSueldoNeto
     
-    // 1. Definición de variables
+    // 1. DefiniciÃ³n de variables
     Definir sueldo_mensual, sueldo_anual, impuesto, sueldo_neto_anual Como Real;
     Definir limite_impuesto Como Real;
-    limite_impuesto <- 30000; // Constante para el límite del impuesto
+    limite_impuesto <- 30000; // Constante para el lÃ­mite del impuesto
     
-    Escribir "--- Cálculo de Sueldo Neto Anual ---";
+    Escribir "--- CÃ¡lculo de Sueldo Neto Anual ---";
     
     // 2. Pedir sueldo mensual al usuario
     Escribir "Ingrese su sueldo mensual ($):";
@@ -14,7 +14,7 @@ Algoritmo CalculoSueldoNeto
     // 3. Determinar sueldo anual
     sueldo_anual <- sueldo_mensual * 12;
     
-    // 4. Aplicar impuesto si supera el límite de $30,000
+    // 4. Aplicar impuesto si supera el lÃ­mite de $30,000
     Si sueldo_anual > limite_impuesto Entonces
         Definir excedente Como Real;
         Definir tasa_impuesto Como Real;
@@ -38,7 +38,7 @@ Algoritmo CalculoSueldoNeto
         Escribir "=============================================";
         
     SiNo
-        // Si no supera el límite, no hay impuesto
+        // Si no supera el lÃ­mite, no hay impuesto
         impuesto <- 0;
         sueldo_neto_anual <- sueldo_anual;
         
