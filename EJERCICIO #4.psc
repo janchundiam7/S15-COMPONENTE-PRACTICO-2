@@ -1,65 +1,52 @@
-Algoritmo Asociacion_venicultores
+Algoritmo CalculoSueldoNeto
     
-    // 1. Definición de variables
-    Definir tipo_caja, tamanio Como Caracter;
-    Definir precio_inicial, precio_final Como Real;
+    // 1. Definici�n de variables
+    Definir sueldo_mensual, sueldo_anual, impuesto, sueldo_neto_anual Como Real;
+    Definir limite_impuesto Como Real;
+    limite_impuesto <- 30000; // Constante para el l�mite del impuesto
     
-    Escribir "--- Cálculo de Recibo a Productor de Banano ---";
+    Escribir "--- C�lculo de Sueldo Neto Anual ---";
     
-    // 2. Pedir datos al usuario
-    Escribir "Ingrese el tipo de caja (A o B):";
-    Leer tipo_caja;
-    Escribir "Ingrese el tamaño de la fruta (1 o 2):";
-    Leer tamanio;
+    // 2. Pedir sueldo mensual al usuario
+    Escribir "Ingrese su sueldo mensual ($):";
+    Leer sueldo_mensual;
     
-    // 3. Determinar precio inicial según el tipo de caja
-    Si Mayusculas(tipo_caja) = "A" Entonces
-        precio_inicial <- 2; // $2 si es Tipo A
+    // 3. Determinar sueldo anual
+    sueldo_anual <- sueldo_mensual * 12;
+    
+    // 4. Aplicar impuesto si supera el l�mite de $30,000
+    Si sueldo_anual > limite_impuesto Entonces
+        Definir excedente Como Real;
+        Definir tasa_impuesto Como Real;
+        tasa_impuesto <- 0.15; // 15%
+        
+        // Calcular el excedente
+        excedente <- sueldo_anual - limite_impuesto;
+        
+        // Calcular el impuesto sobre el excedente
+        impuesto <- excedente * tasa_impuesto;
+        
+        // Calcular el sueldo neto
+        sueldo_neto_anual <- sueldo_anual - impuesto;
+        
+        Escribir "=============================================";
+        Escribir "SUELDO ANUAL BRUTO: $", sueldo_anual;
+        Escribir "El sueldo supera los $", limite_impuesto, " por lo que se aplica impuesto.";
+        Escribir "Excedente sujeto a impuesto (15%): $", excedente;
+        Escribir "Monto del Impuesto: $", impuesto;
+        Escribir "SUELDO NETO ANUAL: $", sueldo_neto_anual;
+        Escribir "=============================================";
+        
     SiNo
-        Si Mayusculas(tipo_caja) = "B" Entonces
-            precio_inicial <- 3; // $3 si es Tipo B
-        SiNo
-            Escribir "ERROR: Tipo de caja no reconocido. Usaremos $0.";
-            precio_inicial <- 0;
-        FinSi
+        // Si no supera el l�mite, no hay impuesto
+        impuesto <- 0;
+        sueldo_neto_anual <- sueldo_anual;
+        
+        Escribir "=============================================";
+        Escribir "SUELDO ANUAL BRUTO: $", sueldo_anual;
+        Escribir "El sueldo anual no supera los $", limite_impuesto, ". NO se aplica impuesto.";
+        Escribir "SUELDO NETO ANUAL: $", sueldo_neto_anual;
+        Escribir "=============================================";
     FinSi
     
-    // 4. Aplicar modificación al precio inicial según el tamaño
-    precio_final <- precio_inicial; // Inicialmente el precio final es el precio base
-    
-    Si Mayusculas(tipo_caja) = "A" Entonces
-        // Modificaciones para el Tipo A
-        Si tamanio = "1" Entonces
-            precio_final <- precio_final + 0.20; // + $0.20
-            Escribir "Ajuste: Se añaden $0.20 por ser Tamaño 1.";
-        SiNo
-            Si tamanio = "2" Entonces
-                precio_final <- precio_final + 0.40; // + $0.40
-                Escribir "Ajuste: Se añaden $0.40 por ser Tamaño 2.";
-            FinSi
-        FinSi
-    SiNo
-        Si Mayusculas(tipo_caja) = "B" Entonces
-            // Modificaciones para el Tipo B
-            Si tamanio = "1" Entonces
-                precio_final <- precio_final - 3; // - $3.00
-                Escribir "Ajuste: Se rebajan $3.00 por ser Tamaño 1.";
-            SiNo
-                Si tamanio = "2" Entonces
-                    precio_final <- precio_final - 6; // - $6.00
-                    Escribir "Ajuste: Se rebajan $6.00 por ser Tamaño 2.";
-                FinSi
-            FinSi
-        FinSi
-    FinSi
-    
-    // 5. Mostrar resultado
-    Escribir "=============================================";
-    Escribir "Tipo de Caja Ingresado: ", tipo_caja;
-    Escribir "Tamaño de Fruta Ingresado: ", tamanio;
-    Escribir "Precio Inicial (Base) de la Caja: $", precio_inicial;
-    Escribir "Precio Final que Recibirá el Productor: $", precio_final;
-    Escribir "=============================================";
-    
-
 FinAlgoritmo
